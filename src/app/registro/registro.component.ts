@@ -32,7 +32,8 @@ export class RegistroComponent implements OnInit {
     this.service.registrar(request).subscribe(data => {
       console.log(data);
       this.result = data;
-      if(this.result.message == "OK"){
+      console.log(this.result);
+      if(this.result["message"] == "OK"){
         this.router.navigateByUrl('cliente');
       }else{
         this.message = '<div class="alert alert-danger my-3" role="alert">'+

@@ -7,25 +7,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class OrigenServiceService {
 
+  URL = "http://34.73.56.49:80/";
 
   constructor(
-    private router : Router,
     private http : HttpClient,
   ) { }
 
 
 
   listar(){
-    return this.http.get('http://34.73.56.49:80/api/clientes/list');
+    return this.http.get(this.URL + "api/clientes/list");
   }
 
   registrar(data:any)
   {
-    return this.http.post('http://34.73.56.49:80/api/clientes/crea', data);
+
+    return this.http.post(this.URL+"api/clientes/crea", data);
   }
 
   variacion()
   {
-    return this.http.get('http://34.73.56.49:80/api/clientes/kpi');
+    return this.http.get(this.URL + "api/clientes/kpi");
   }
 }
