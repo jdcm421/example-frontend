@@ -28,8 +28,10 @@
           <input type="date" class="form-control" [(ngModel)]="fechaNacimiento" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su fecha de nacimiento" required>
         </div>
       </div>
-      {{message != null ? '' :
-      message}}
+      <div class="alert alert-danger my-3 {{message != null ? '' : 'd-none'}}" role="alert">
+        {{message != null ? message : ''}}
+      </div>
+
 
       <div class="row">
         <div class="col">

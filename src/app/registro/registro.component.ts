@@ -28,20 +28,15 @@ export class RegistroComponent implements OnInit {
     request["apellido"] = this.apellido;
     request["edad"] = this.edad;
     request["fechaNacimiento"] = this.fechaNacimiento;
-    console.log(request);
     this.service.registrar(request).subscribe(data => {
-      console.log(data);
       this.result = data;
-      console.log(this.result);
-      if(this.result["message"] == "OK"){
+      if(this.result.code == 200){
         this.router.navigateByUrl('cliente');
-      }else{
-        this.message = '<div class="alert alert-danger my-3" role="alert">'+
-        ''+ this.result.message
-      +'</div>';
       }
     }, error => {
       console.error(error);
+      this.result= error["error"];
+      this.message = this.result.message;
     })
   }
 }

@@ -22,12 +22,10 @@ export class ClienteComponent implements OnInit {
   clientas()
   {
     this.service.listar().subscribe(data =>{
-      console.log(data);
       this.listaclientes=data;
       this.listaclientes = this.listaclientes.data;
       console.log(this.listaclientes);
     }, error => {
-      console.error(error);
       this.listaclientes = [];
     });
   }
@@ -35,7 +33,6 @@ export class ClienteComponent implements OnInit {
   kpi()
   {
     this.service.variacion().subscribe(data => {
-      console.log(data);
       this.result = data;
       this.result = this.result.data;
       console.log(this.result);
