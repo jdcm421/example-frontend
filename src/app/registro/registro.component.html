@@ -1,40 +1,36 @@
 <div class="container">
   <div class="container-fluid">
-    <h1 class="text-center">Registro de Cliente</h1>
-    <form>
+    <h1 class="text-center my-3">Registro de Cliente</h1>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="cliente">Regresar</a>
+      </li>
+    </ul>
+    <form (ngSubmit)="OnSubmit()">
       <div class="row">
         <div class="col-sm-6">
-          <label for="firstName" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            Valid first name is required.
-          </div>
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su nombre por favor" required>
         </div>
 
         <div class="col-sm-6">
-          <label for="lastName" class="form-label">Apellidos</label>
-          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            Valid last name is required.
-          </div>
+          <label for="apellido" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" [(ngModel)]="apellido" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su apellido por favor" required>
         </div>
 
         <div class="col-sm-6">
-          <label for="firstName" class="form-label">Edad</label>
-          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            Valid first name is required.
-          </div>
+          <label for="edad" class="form-label">Edad</label>
+          <input type="number" class="form-control" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su edad por favor" required>
         </div>
 
         <div class="col-sm-6">
-          <label for="lastName" class="form-label">Fecha de nacimiento</label>
-          <input type="date" class="form-control" required>
-          <div class="invalid-feedback">
-            Valid last name is required.
-          </div>
+          <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+          <input type="date" class="form-control" [(ngModel)]="fechaNacimiento" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su fecha de nacimiento" required>
         </div>
       </div>
+      {{message != null ? '' :
+      message}}
+
       <div class="row">
         <div class="col">
           <button class="w-100 btn btn-primary btn-lg my-3" type="submit">Registro</button>

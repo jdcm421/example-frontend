@@ -12,7 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './registro/registro.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule } from '@angular/forms';
-import { NotifierModule} from 'angular-notifier';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +26,7 @@ import { NotifierModule} from 'angular-notifier';
     HttpClientModule,
     NgxSpinnerModule,
     FormsModule,
-    NgbModule,
-    NotifierModule
+    NgbModule
   ],
   providers: [OrigenServiceService,
   {provide: HTTP_INTERCEPTORS,useClass: InterceptorService ,multi: true}],
