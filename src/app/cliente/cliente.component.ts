@@ -24,8 +24,8 @@ export class ClienteComponent implements OnInit {
     this.service.listar().subscribe(data =>{
       this.listaclientes=data;
       this.listaclientes = this.listaclientes.data;
-      console.log(this.listaclientes);
     }, error => {
+      console.error(error);
       this.listaclientes = [];
     });
   }
@@ -35,7 +35,6 @@ export class ClienteComponent implements OnInit {
     this.service.variacion().subscribe(data => {
       this.result = data;
       this.result = this.result.data;
-      console.log(this.result);
     }, error => {
       console.error(error);
       this.result = null;
