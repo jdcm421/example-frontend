@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -7,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class OrigenServiceService {
 
-  URL = "http://34.73.56.49:80/";
+  URL = "http://34.73.56.49/";
 
   constructor(
     private http : HttpClient,
