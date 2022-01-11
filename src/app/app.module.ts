@@ -1,3 +1,5 @@
+import { InterceptorService } from './interceptor.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,7 +10,9 @@ import { OrigenServiceService } from './origen-service.service';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './registro/registro.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { FormsModule } from '@angular/forms';
+import { NotifierModule} from 'angular-notifier';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +23,15 @@ import { RegistroComponent } from './registro/registro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    FormsModule,
+    NgbModule,
+    NotifierModule
   ],
-  providers: [OrigenServiceService],
+  providers: [OrigenServiceService,
+  {provide: HTTP_INTERCEPTORS,useClass: InterceptorService ,multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
