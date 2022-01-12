@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
     request["fechaNacimiento"] = this.fechaNacimiento;
     this.service.registrar(request).subscribe(data => {
       this.result = data;
-      if(this.result.code == 201){
+      if(this.result["message"] == "OK"){
         this.router.navigateByUrl('cliente');
       }
     }, error => {
